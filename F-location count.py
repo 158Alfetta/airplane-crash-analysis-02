@@ -1,3 +1,4 @@
+import pygal
 import pandas as pd
 def main():
     df = pd.read_csv('C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\Countries.csv', encoding='ISO-8859-1')
@@ -25,6 +26,10 @@ def main():
         for k in location:
             if str(l) in k:
                 country_count['us'] += 1
+    country_count['us'] = min(country_count['us'], 150)
     print(country_count)
-    return country_count
+    worldmap_chart = pygal.maps.world.World()
+    worldmap_chart.title = 'EEEEEEEE'
+    worldmap_chart.add('Crash rate 1970-2016', country_count)
+    worldmap_chart.render_to_file('maps.svg')
 main()
