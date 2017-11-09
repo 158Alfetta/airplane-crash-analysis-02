@@ -26,10 +26,10 @@ def main():
         for k in location:
             if str(l) in k:
                 country_count['us'] += 1
-    country_count['us'] = min(country_count['us'], 150)
+    country_count['us'] = min(country_count['us'], 155)
     print(country_count)
     worldmap_chart = pygal.maps.world.World()
-    worldmap_chart.title = 'EEEEEEEE'
-    worldmap_chart.add('Crash rate 1970-2016', country_count)
+    worldmap_chart.title = 'Airplane Crashes Rate from 1970 - 2016 By Location'
+    worldmap_chart.add('Crash Rate:', country_count)
     worldmap_chart.render_to_file('maps.svg')
 main()
