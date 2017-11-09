@@ -1,4 +1,5 @@
 import pandas as pd
+import pygal
 def ground():
     df = pd.read_csv('C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv', encoding = "ISO-8859-1")
     date = df.Date.tolist()
@@ -24,10 +25,8 @@ def ground():
     for k in diction_sort:
         list_val.append(k)
         list_in_text = diction_sort[k]
-        list_lable.append('In'+str(list_in_text[0])+'. On flight'+str(list_in_text[1])+' : '+str(list_in_text[2]))
-    print(diction_sort)
-    dark_rotate_style = RotateStyle('#ff8723')
-    line_chart = pygal.Bar(fill=True, interpolate='cubic', style=dark_rotate_style)
+        list_lable.append('In '+str(list_in_text[0])+' On flight '+str(list_in_text[1])+' : '+str(list_in_text[2]))
+    line_chart = pygal.Bar()
     line_chart.title = 'Classification by cause that affect on accident'
     line_chart.x_labels = list_lable
     line_chart.add('Frequency :', list_val)
