@@ -10,7 +10,7 @@ fuel starvation, run out of fuel, ran out of fuel"""
     keyword_fuel = ['fuel starvation', 'run out of fuel', 'ran out of fuel']
     keyword_body = ['fatigue fracture', 'airframe', 'fatigue failure', 'crack', \
     'empannage', 'fuselage', 'starboard', 'flap', 'slat', 'aileron', 'empennage', 'spoiler']
-    df = pd.read_csv('C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv', encoding = "ISO-8859-1")
+    df = pd.read_csv('/Users/punmanat/Documents/GitHub/airplane-crash-analysis-02/dataset_psit.csv', encoding = "ISO-8859-1")
     summary = df.Summary.tolist()
     count_dic = {'Engine problem': 0, 'Fuel starvation': 0, 'Airframe problem': 0}
     for text in summary:
@@ -39,7 +39,7 @@ def HijStat_AttStat_SuiStat():
     keyword_att = 'shot down'
     keyword_sui = 'suicide'
     count_dic = {'Hijack': 0, 'Attack': 0, 'Suicide': 0}
-    df = pd.read_csv('C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv', encoding = "ISO-8859-1")
+    df = pd.read_csv('/Users/punmanat/Documents/GitHub/airplane-crash-analysis-02/dataset_psit.csv', encoding = "ISO-8859-1")
     summary = df.Summary.tolist()
     for text in summary:        #for any row in .csv (jsut only Summary)
         text_low = str(text).lower()
@@ -58,7 +58,7 @@ def human_error():
     """ will return 2 dict
         1.all of human error dict
         2.human error:'improper maintance and specific human error"""
-    df = pd.read_csv('C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv', encoding = "ISO-8859-1")
+    df = pd.read_csv('/Users/punmanat/Documents/GitHub/airplane-crash-analysis-02/dataset_psit.csv', encoding = "ISO-8859-1")
     summary = df.Summary.tolist()
     keyword = ['pilot error', 'wrong', 'crew error']
     count_dic = {'Human error': 0, 'Improper maintenance': 0}
@@ -176,7 +176,7 @@ def event_balloon(df):
     return dict_
 def main():
     '''Main Function'''
-    df = pd.read_csv('C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv', encoding = "ISO-8859-1")
+    df = pd.read_csv('/Users/punmanat/Documents/GitHub/airplane-crash-analysis-02/dataset_psit.csv', encoding = "ISO-8859-1")
     weathers = reduce(lambda x,y: dict(x, **y), (event_rain(df), event_storm(df),\
      event_fog(df), event_snow(df))) # Collect to 1 dictionary of weather
     geo = event_mountain(df)
@@ -184,6 +184,7 @@ def main():
     disturb = reduce(lambda x,y: dict(x, **y), (event_bird(df), event_balloon(df),event_drone(df)))
     all_weathers = all_weather(weathers)
     return all_weathers, geo, {'Distrub':disturb['bird']+disturb['balloon']+disturb['drone']}
+from pygal.style import RotateStyle
 def chart():
     list_all = [mechanism_problem(), human_error()]
     list_lable = []
@@ -198,7 +199,8 @@ def chart():
         for j in i:
             list_lable.append(j)
             list_val.append(int(i[j]))
-    line_chart = pygal.Bar()
+    dark_rotate_style = RotateStyle('#ff8723')
+    line_chart = pygal.Bar(fill=True, interpolate='cubic', style=dark_rotate_style)
     line_chart.title = 'Classification by cause that affect on accident'
     line_chart.x_labels = list_lable
     line_chart.add('Frequency :', list_val)
