@@ -5,6 +5,8 @@ def ground():
     years = []
     diction = {}
     diction_sort = {}
+    list_lable = []
+    list_val = []
     for item in date:
         temp = item.split()
         years.append(temp[2])
@@ -19,7 +21,15 @@ def ground():
             diction[int(ground[i])] = [years[i], flight[i], summary[i]]
     for j in sorted(diction, reverse=True):
         diction_sort[j] = diction[j]
+    for k in diction_sort:
+        list_val.append(k)
+        list_in_text = diction_sort[k]
+        list_lable.append('In'+str(list_in_text[0])+'. On flight'+str(list_in_text[1])+' : '+str(list_in_text[2]))
     print(diction_sort)
-    return diction_sort # just only top ten ground people
-    #return diction  # all data that ground != 0
+    dark_rotate_style = RotateStyle('#ff8723')
+    line_chart = pygal.Bar(fill=True, interpolate='cubic', style=dark_rotate_style)
+    line_chart.title = 'Classification by cause that affect on accident'
+    line_chart.x_labels = list_lable
+    line_chart.add('Frequency :', list_val)
+    line_chart.render_to_file('Ground People.svg')
 ground()
