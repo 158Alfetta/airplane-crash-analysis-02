@@ -33,7 +33,7 @@ def headtype():
     list_lable2 = list_lable[-1::-1]
     list_val2 = list_val[-1::-1]
     line_chart = pygal.Bar()
-    line_chart.title = 'Top 10 of most airplane crashed since 1970 - 2016 '
+    line_chart.title = 'Top 10 model aircraft crashed since 1970 - 2016'
     line_chart.x_labels = list_lable2
     line_chart.add('Frequency :', list_val2)
     line_chart.render_to_file('Type_of_airplane.svg')
