@@ -33,9 +33,9 @@ def main():
             country_count['ru'] += 1
         elif 'Russian' in k:
             country_count['ru'] += 1
+    print(country_count)
     country_count['us'] = min(country_count['us'], 155)
     country_count['ru'] = min(country_count['ru'], 125)
-    print(country_count)
     worldmap_chart = pygal.maps.world.World()
     worldmap_chart.title = 'Airplane Crashes Rate from 1970 - 2016 By Location'
     worldmap_chart.add('Crash Rate:', country_count)
