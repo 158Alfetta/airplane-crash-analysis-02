@@ -3,11 +3,11 @@ import pandas
 def plane_type():
 
     #Change this to current csv directory.
-    directory = 'C:\\Users\\Lert Krush\\Desktop\\dataset_psit.csv'
-
+    directory = 'C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv'
     counter = ''
     headercounter = 0
-    priv_or_milt_counter = 0
+    priv = 0
+    milt_counter = 0
     cargocounter = 0
     helicounter = 0
     returnlist = [0, 0, 0]
@@ -16,8 +16,11 @@ def plane_type():
         maintextinloop = pandas.read_csv(directory, encoding = "ISO-8859-1", header = headercounter, usecols=[4])
         for counter in maintextinloop:
             counter = counter.lower()
-            if ('private' in counter) | ('military' in counter):
-                priv_or_milt_counter+=1
+            if ('private' in counter):
+                priv += 1
+                break
+            elif  ('military' in counter):
+                milt_counter+=1
                 break
         maintextinloop = pandas.read_csv(directory, encoding = "ISO-8859-1", header = headercounter, usecols=[10])
         for counter in maintextinloop:
@@ -30,13 +33,14 @@ def plane_type():
             if ('helicopter' in counter):
                 helicounter+=1
                 break
-    passengerplane = maintext.shape[0]-(priv_or_milt_counter+cargocounter+helicounter)
+    passengerplane = maintext.shape[0]-(milt_counter+cargocounter+helicounter+priv)
     returndict = {}
-    returndict["'private' and 'military' frequency"] = priv_or_milt_counter
-    returndict["'cargo' frequency"] = cargocounter
-    returndict["'helicopter' frequency"] = helicounter
-    returndict["Number of passenger plane(s)"] = cargocounter
-    #print (returndict)
+    returndict["Military"] = milt_counter
+    returndict["Cargo"] = cargocounter
+    returndict["Helicopter"] = helicounter
+    returndict["Passenger"] = passengerplane
+    returndict["Private"] = priv
+    print (returndict)
     return (returndict)
 
-#plane_type()
+plane_type()
