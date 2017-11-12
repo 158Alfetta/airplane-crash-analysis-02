@@ -11,7 +11,7 @@ def ground():
     for item in date:
         temp = item.split()
         years.append(temp[2])
-    ground = df.Ground.tolist()
+    ground = df.Ground.fillna(0).tolist()
     flight = df.Flight.fillna('unknown').tolist()
     summary = df.Summary.tolist()
     for j in range(len(flight)):
@@ -26,7 +26,7 @@ def ground():
         list_val.append(k)
         list_in_text = diction_sort[k]
         list_lable.append('In '+str(list_in_text[0])+' On flight '+str(list_in_text[1])+' : '+str(list_in_text[2]))
-    line_chart = pygal.Bar()
+    line_chart = pygal.Bar(x_label_rotation=90)
     line_chart.title = 'Chart showing accidents that affect people on the ground.'
     line_chart.x_labels = list_lable
     line_chart.add('Fatalities :', list_val)
