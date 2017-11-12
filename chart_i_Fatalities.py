@@ -45,12 +45,12 @@ def chart():
     for j in dict_year:
         list_lable_year.append(j)
         list_value_year.append(dict_year[j])
-    line_chart = pygal.Line()
-    line_chart.title = 'eeeee'
+    line_chart = pygal.Line(x_label_rotation=90, fill=True)
+    line_chart.title = 'fatalities per years in 1970 - 2016'
     line_chart.x_labels = list_lable_fatal
     line_chart.add('Fatalities', list_value_fatal)
-    line_chart2 = pygal.Line()
-    line_chart2.title = 'sssss'
+    line_chart2 = pygal.Line(x_label_rotation=90, fill=True)
+    line_chart2.title = 'Line of airplane accident per year in 1970 - 2016'
     line_chart2.x_labels = list_lable_year
     line_chart2.add('Frequency', list_value_year)
     line_chart.render_to_file('fatal.svg')
