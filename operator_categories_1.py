@@ -3,7 +3,7 @@ import pygal
 def plane_type():
 
     #Change this to current csv directory.
-    directory = 'C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv'
+    directory = '/Users/punmanat/Documents/GitHub/airplane-crash-analysis-02/dataset_psit.csv'
     counter = ''
     headercounter = 0
     priv = 0
@@ -37,6 +37,7 @@ def plane_type():
     line_chart = pygal.Bar()
     line_chart.title = 'Operator by categories'
     line_chart.x_labels = ["Passenger","Military", "Cargo", "Private"]
-    line_chart.add('Frequency :', [passengerplane, milt_counter, cargocounter, priv])
-    line_chart.render_to_file('Bar Operator categories.svg')
+    line_chart.add('Frequency :', [{'value':passengerplane, 'color': 'blue '}, {'value':milt_counter, 'color': 'red'},\
+     {'value':cargocounter, 'color': 'orange'}, {'value':priv, 'color': 'green'}])
+    line_chart.render_to_file('svg/Bar Operator categories.svg')
 plane_type()
