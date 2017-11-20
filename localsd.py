@@ -1,7 +1,6 @@
 import pandas as pd
 import pygal
 def plane_type():
-
     #Change this to current csv directory.
     df = pd.read_csv('C:\\Users\\DELL\\Desktop\\dataset_psit.csv', encoding = "ISO-8859-1")
     date = df['Date']
@@ -10,29 +9,46 @@ def plane_type():
     headercounter = 0
     returnlist = [0, 0, 0]
     dict_year = {}
-    year = {1970: {}, 1971: {}, 1972: {}, 1973: {}, 1974: {}, 1975: {}, 1976: {}, 1977: {}, 1978: {}, 1979: {}, 1980: {}, 1981: {}, 1982: {}, 1983: {}, 1984: {}, 1985: {}, 1986: {}, 1987: {}, 1988: {}, 1989: {}, 1990: {}, 1991: {}, 1992: {}, 1993: {}, 1994: {}, 1995: {}, 1996: {}, 1997: {}, 1998: {}, 1999: {}, 2000: {}, 2001: {}, 2002: {}, 2003: {}, 2004: {}, 2005: {}, 2006: {}, 2007: {}, 2008: {}, 2009: {}, 2010: {}, 2011: {}, 2012: {}, 2013: {}, 2014: {}, 2015: {}, 2016: {}}
+    year = {'1970': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1971': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1972': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1973': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1974': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1975': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1976': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1977': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1978': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1979': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1980': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1981': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1982': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1983': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1984': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1985': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1986': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1987': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1988': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1989': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1990': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1991': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1992': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1993': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1994': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1995': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1996': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1997': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1998': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '1999': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2000': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2001': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2002': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2003': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2004': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2005': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2006': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2007': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2008': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2009': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2010': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2011': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2012': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2013': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2014': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2015': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}, '2016': {'Pri': 0, 'Mil': 0, 'Car': 0, 'All': 0}}
     years = []
-    maintext = pd.read_csv(directory, encoding = "ISO-8859-1", header = None)
+    counter = df.Summary.fillna('nothing').tolist()
     for i in date:
         too = i.split()
         years.append(too[2])
-    for i in years:
-        if i in year:
-            for headercounter in maintext.index:
-                maintextinloop = pd.read_csv(directory, encoding = "ISO-8859-1", header = headercounter, usecols=[4])
-                for counter in maintextinloop:
-                    counter = counter.lower()
-                    if 'private' in counter:
-                        year[i][private] += 1
-                        break
-                    elif 'military' in counter:
-                        year[i][military] += 1
-                        break
-                    elif 'express' in counter:
-                        year[i][express] += 1
-                        break
-                    elif 'air' in counter:
-                        year[i][airline] += 1
-                        break
-    print(year)
+    count = 0
+    countt = 0
+    for i in range(len(counter)):
+        param = years[i]
+        count += 1
+        if 'private' in counter[i]:
+            year[param]['Pri'] += 1
+            countt += 1
+        elif 'military' in counter[i]:
+            year[param]['Mil'] += 1
+            countt += 1
+        elif 'cargo' in counter[i]:
+            year[param]['Car'] += 1
+            countt += 1
+        else:
+            year[param]['All'] += 1
+            countt += 1
+
+    lista = []
+    listb = []
+    listc = []
+    listd = []
+    for i in year:
+        lista.append(year[i]["Pri"])
+        listb.append(year[i]["Mil"])
+        listc.append(year[i]["Car"])
+        listd.append(year[i]["All"])
+
+    line_chart = pygal.Line()
+    line_chart.title = 'all of most accident of plane type'
+    line_chart.x_labels = year
+    line_chart.add('private', lista)
+    line_chart.add('military', listb)
+    line_chart.add('Cargo', listc)
+    line_chart.add('airline', listd)
+    line_chart.render_to_file('most of most.svg')
 plane_type()
