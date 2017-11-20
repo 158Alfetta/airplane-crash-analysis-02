@@ -59,10 +59,6 @@ def ground():
     line_chart = pygal.Bar()
     line_chart.title = 'Amount of ground people dead'
     line_chart.x_labels = ['others', 'takeoff', 'hijack', 'suicide', 'shot down']
-    line_chart.add('Others', lst_co[0])
-    line_chart.add('Takeoff', lst_co[1])
-    line_chart.add('Hijack', lst_co[2])
-    line_chart.add('Suicide', lst_co[3])
-    line_chart.add('Shot down', lst_co[4])
+    line_chart.add('Amount of dead people on ground', [lst_co[0], lst_co[1], lst_co[2], lst_co[3], lst_co[4]])
     line_chart.render_to_file('ground_yaimai.svg')
 ground()
