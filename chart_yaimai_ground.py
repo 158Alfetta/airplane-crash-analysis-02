@@ -57,8 +57,14 @@ def ground():
     lst_co.sort(reverse=True)
 
     line_chart = pygal.Bar()
+<<<<<<< HEAD
     line_chart.title = 'Ground people accident use keyword'
     line_chart.x_labels = ['others', 'takeoff', 'hijack', 'suicide', 'shot down']
     line_chart.add('Ground people accident use keyword', [{'value':lst_co[0], 'color':'#6699FF'}, {'value':lst_co[1], 'color':'#CC99FF'}, {'value':lst_co[2], 'color':'#FF99FF'}, {'value':lst_co[3], 'color':'red'}, {'value':lst_co[4], 'color':'orange'}])
+=======
+    line_chart.title = 'Amount of ground people dead'
+    line_chart.x_labels = ['others', 'attempt to takeoff/laning', 'hijack', 'suicide', 'shot down']
+    line_chart.add('Amount of dead people on ground', [{'value':lst_co[0], 'color':'#6699FF'}, {'value':lst_co[1], 'color':'#CC99FF'}, {'value':lst_co[2], 'color':'#FF99FF'}, {'value':lst_co[3], 'color':'red'}, {'value':lst_co[4], 'color':'orange'}])
+>>>>>>> f66628688cf98c18dd2833e7a90362a2f27a5e3d
     line_chart.render_to_file('ground_yaimai.svg')
 ground()
