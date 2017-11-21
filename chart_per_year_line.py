@@ -44,11 +44,11 @@ def plane_type():
         listd.append(year[i]["All"])
 
     line_chart = pygal.Line()
-    line_chart.title = 'most accident of plane type'
+    line_chart.title = 'Frequency line by categories 1970 - 2016'
     line_chart.x_labels = year
-    line_chart.add('private', lista)
-    line_chart.add('military', listb)
-    line_chart.add('air cargo', listc)
-    line_chart.add('airline', listd)
+    line_chart.add('Private', lista)
+    line_chart.add('Military', listb)
+    line_chart.add('Air cargo', listc)
+    line_chart.add('Airline', listd)
     line_chart.render_to_file('most_summary_line.svg')
 plane_type()
