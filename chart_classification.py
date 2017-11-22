@@ -199,10 +199,12 @@ def chart():
         for j in i:
             list_lable.append(j)
             list_val.append(int(i[j]))
+    list_val.sort(reverse=True)
     dark_rotate_style = RotateStyle('#ff8723')
-    line_chart = pygal.Bar(fill=True, interpolate='cubic', style=dark_rotate_style)
+    line_chart = pygal.Bar(fill=True, interpolate='cubic', style=dark_rotate_style, x_label_rotation=30)
     line_chart.title = 'Classification by cause that affect on accident'
-    line_chart.x_labels = list_lable
+    line_chart.x_labels = ['Weather', 'Mechanism', 'Geography',\
+     'Human Error', 'Attack', 'Hijack', 'Disturb', 'Suicie'] 
     line_chart.add('Frequency :', list_val)
-    line_chart.render_to_file('bar_chart_classification.svg')                          # Save the svg to a file
+    line_chart.render_to_file('svg/bar_chart_classification.svg')                          # Save the svg to a file
 chart()
