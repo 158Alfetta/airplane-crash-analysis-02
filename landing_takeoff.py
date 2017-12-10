@@ -2,7 +2,7 @@
 import pandas as pd
 from operator import itemgetter
 from collections import OrderedDict
-path = '/Users/punmanat/Documents/GitHub/airplane-crash-analysis-02/dataset_psit.csv'
+path = 'C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv'
 df = pd.read_csv(path, encoding='ISO-8859-1')
 def main(df):
     '''main function'''
@@ -35,7 +35,7 @@ def landing_dct(df, landing):
                 dct_landing[i] += 1
         temp = []
     sorted_x = OrderedDict(sorted(dct_landing.items(), key=itemgetter(1), reverse=True))
-    return dict(sorted_x)
+    print(dict(sorted_x))
 
 def takeoff_dct(df, takeoff):
     '''landing'''
@@ -49,5 +49,5 @@ def takeoff_dct(df, takeoff):
                 dct_takeoff[i] += 1
         temp = []
     sorted_y = OrderedDict(sorted(dct_takeoff.items(), key=itemgetter(1), reverse=True))
-    return dict(sorted_y)
+    #print(dict(sorted_y))
 landing, takeoff = main(df)
