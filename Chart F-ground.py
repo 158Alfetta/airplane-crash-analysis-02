@@ -56,7 +56,7 @@ def ground():
     lst_co.append(c_oth)
     lst_co.sort(reverse=True)
 
-    line_chart = pygal.Bar()
+    line_chart = pygal.Bar(show_x_labels=False)
     line_chart.title = 'Amount of ground people dead'
     line_chart.x_labels = ['others', 'takeoff', 'hijack', 'suicide', 'shot down']
     line_chart.add('Others', lst_co[0])
