@@ -1,11 +1,11 @@
 import pandas as pd
 import pygal
+from pygal.style import Style
 def ground():
     df = pd.read_csv('C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv', encoding = "ISO-8859-1")
     date = df.Date.tolist()
     years = []
-    diction = {}
-    diction_sort = {}
+    lst_all = []
     list_lable = []
     list_val = []
     for item in date:
@@ -18,16 +18,13 @@ def ground():
         if flight[j] == '?':
             flight[j] = 'Unknown'
     for i in range(len(ground)):
-        if int(ground[i]) != 0:
-            diction[int(ground[i])] = [years[i], flight[i], summary[i]]
-    for j in sorted(diction, reverse=True):
-        diction_sort[j] = diction[j]
-    for k in diction_sort:
-        list_val.append(k)
-        list_in_text = diction_sort[k]
-        list_lable.append('In '+str(list_in_text[0])+' On flight '+str(list_in_text[1])+' : '+str(list_in_text[2]))
-    dark_rotate_style = RotateStyle('#006699')
-    line_chart = pygal.Bar(show_x_labels=False, style=dark_rotate_style)
+        if int(ground[i]) >= 10:
+            lst_all.append((int(ground[i]), years[i], flight[i], summary[i]))
+    lst_all.sort(reverse=True)
+    for k in lst_all:
+        list_val.append(int(k[0]))
+        list_lable.append('In '+str(k[1])+' On flight '+str(k[2])+' : '+str(k[3]))
+    line_chart = pygal.Bar(show_x_labels=False)
     line_chart.title = 'Classification by cause that affect on accident'
     line_chart.x_labels = list_lable
     line_chart.add('Frequency :', list_val)
