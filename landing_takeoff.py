@@ -50,4 +50,7 @@ def takeoff_dct(df, takeoff):
         temp = []
     sorted_y = OrderedDict(sorted(dct_takeoff.items(), key=itemgetter(1), reverse=True))
     #print(dict(sorted_y))
-landing, takeoff = main(df)
+def count_land_take(df):
+    '''Counting landing and takeoff'''
+    landing, takeoff = main(df)
+    
