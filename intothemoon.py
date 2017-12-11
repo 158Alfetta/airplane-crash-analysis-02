@@ -4,7 +4,7 @@ import pygal
 def main():
     """plane"""
     alla = []
-    head = pd.read_csv('C:\\Users\\DELL\\Desktop\\dataset_psit.csv', encoding='ISO-8859-1')
+    head = pd.read_csv('C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv', encoding='ISO-8859-1')
     fatal = head.Fatalities.tolist()
     aboard = head.Aboard.tolist()
     for i in range(len(fatal)):
@@ -36,13 +36,14 @@ def main():
             elif omg > 80:
                 list80 += 1
                 omg = 0
-    pie_chart = pygal.Pie()
+    print(list1, list21, list41, list61, list80)
+    pie_chart = pygal.Bar()
     pie_chart.title = 'fatality'
     pie_chart.add('0%', list0)
-    pie_chart.add('1%-20%', list1)
-    pie_chart.add('21%-40%', list21)
-    pie_chart.add('41%-60%', list41)
-    pie_chart.add('61%-80%', list61)
+    pie_chart.add('1\\%-20\\%', list1)
+    pie_chart.add('21\\%-40\\%', list21)
+    pie_chart.add('41\\%-60\\%', list41)
+    pie_chart.add('61\\%-80\\%', list61)
     pie_chart.add('>80%', list80)
     pie_chart.render('fatality.svg')
 main()
