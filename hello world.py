@@ -17,5 +17,5 @@ def headtype():
             elif j in head_type[i] and j not in dicta:
                 dicta[j] = 1
                 break
-    print(dicta)
+    print(dicta)#123
 headtype()
