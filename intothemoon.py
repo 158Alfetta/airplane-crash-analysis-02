@@ -35,13 +35,13 @@ def main():
             elif omg > 80:
                 list80 += 1
                 omg = 0
-    pie_chart = pygal.Pie()
-    pie_chart.title = 'fatality'
-    pie_chart.add('0%', list0)
-    pie_chart.add('1%-20%', list1)
-    pie_chart.add('21%-40%', list21)
-    pie_chart.add('41%-60%', list41)
-    pie_chart.add('61%-80%', list61)
-    pie_chart.add('>80%', list80)
-    pie_chart.render('fatality.svg')
+    line_chart = pygal.HorizontalBar()
+    line_chart.title = 'fatality in(%)'
+    line_chart.add('0%', list0)
+    line_chart.add('1%-20%', list1)
+    line_chart.add('21%-40%', list21)
+    line_chart.add('41%-60%', list41)
+    line_chart.add('61%-80%', list61)
+    line_chart.add('>80%', list80)
+    line_chart.render('fatality.svg')
 main()
