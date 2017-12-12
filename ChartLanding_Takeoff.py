@@ -7,6 +7,7 @@ path = "C:\\Users\\Asus\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_
 df = pd.read_csv(path, encoding='ISO-8859-1')
 def main(df):
     '''main function'''
+    #สร้างตัวแปรมาเก็บค่าเป็นlist, Dic=
     landing, takeoff = get_list(df)
     keyword_landing = landing_dct(df, landing)
     keyword_takeoff = takeoff_dct(df, takeoff)
