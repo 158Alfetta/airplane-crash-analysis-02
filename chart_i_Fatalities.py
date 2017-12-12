@@ -2,7 +2,7 @@ import pygal
 import pandas as pd
 def Fatalities():
     """the function will get a year from 'Date'column on dataset and 'Fatalities' to make a dictionary every year
-    ex. 2016: 553 | 553 is a sum of fatalities of year """
+    ex. 2016: 553 | 553 is a sum of fatalities of year"""
     df = pd.read_csv('C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv', encoding = "ISO-8859-1")
     fatal = df.Fatalities.fillna(0).tolist()
     year = df.Date.tolist()
