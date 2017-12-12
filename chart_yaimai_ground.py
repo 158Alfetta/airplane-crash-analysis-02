@@ -34,6 +34,7 @@ def ground():
         list_val.append(j[1])
         list_in_text = dic_level[j[0]]
         list_find.append(list_in_text[2])
+    #วน for เพื่อเช็คkeyword ถ้ามีให้เก็บเข้าอีกตัวแปรของคำนั้นๆ
     for k in list_find:
         if "hijack" in k:
             c_hi += 1
@@ -56,10 +57,12 @@ def ground():
     lst_co.append(c_oth)
     lst_co.sort(reverse=True)
 
+
     line_chart = pygal.Bar()
 <<<<<<< HEAD
     line_chart.title = 'Ground people accident use keyword'
-    line_chart.x_labels = ['others', 'takeoff', 'hijack', 'suicide', 'shot down']
+    line_chart.x_labels = ['others', 'takeoff', 'hijack', 'suicide', 'shot down'] #add keyword in x labels
+    #add color in chart
     line_chart.add('Ground people accident use keyword', [{'value':lst_co[0], 'color':'#6699FF'}, {'value':lst_co[1], 'color':'#CC99FF'}, {'value':lst_co[2], 'color':'#FF99FF'}, {'value':lst_co[3], 'color':'red'}, {'value':lst_co[4], 'color':'orange'}])
 =======
     line_chart.title = 'Amount of ground people dead'
