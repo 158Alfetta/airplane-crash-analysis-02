@@ -4,7 +4,7 @@ def headtype():
     """plane Type"""
     count = 0
     types = {}
-    head = pd.read_csv('C:\\Users\\DELL\\Desktop\\dataset_psit.csv', encoding='ISO-8859-1')
+    head = pd.read_csv('C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv', encoding='ISO-8859-1')
     head_type = head.Type.tolist()
     dicta = {}
     sorttype = sorted(types.items(), key=lambda x: x[1], reverse=True)
@@ -17,5 +17,6 @@ def headtype():
             elif j in head_type[i] and j not in dicta:
                 dicta[j] = 1
                 break
-    print(dicta)#123
+    for i in dicta:
+        print(i+' : '+str(dicta[i]))
 headtype()
