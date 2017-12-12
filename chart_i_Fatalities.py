@@ -14,7 +14,7 @@ def Fatalities():
     diction_year_sort = {}
     for i in year:
         i_2 = i.split(" ")
-        year_clean.append(i_2[2])
+        year_clean.append(i_2[2])               #เลือก[2]คือปี เก็บไว้ในlist year_clean
         if i_2[2] not in diction_year:
             diction_year[i_2[2]] = 1
         else:
