@@ -61,12 +61,14 @@ def count_land_take(df):
     
     line_chart = pygal.HorizontalBar()
     line_chart.title = 'landing takeoff'
-
+    #add keyword in x labels
     line_chart.x_labels = ['overloaded', 'weight', 'overran', 'lack', 'error', 'inadequate', 'improper', 'maintance', 'engine', 'stalled', 'rain', 'fog', 'weather']
+    #add color in chart 
     line_chart.add('Landing', [{'value':land_take_value[12][0], 'color':'#99CCFF'}, {'value':land_take_value[11][0], 'color':'#99CCFF'}, {'value':land_take_value[10][0], 'color':'#99CCFF'},\
         {'value':land_take_value[9][0], 'color':'#99CCFF'}, {'value':land_take_value[8][0], 'color':'#99CCFF'}, {'value':land_take_value[7][0], 'color':'#99CCFF'}, {'value':land_take_value[6][0], 'color':'#99CCFF'}, \
         {'value':land_take_value[5][0], 'color':'#99CCFF'}, {'value':land_take_value[4][0], 'color':'#99CCFF'}, {'value':land_take_value[3][0], 'color':'#99CCFF'}, \
         {'value':land_take_value[2][0], 'color':'#99CCFF'}, {'value':land_take_value[1][0], 'color':'#99CCFF'}, {'value':land_take_value[0][0], 'color':'#99CCFF'} ])
+    #add color in chart
     line_chart.add('Takeoff',  [{'value':land_take_value[12][1], 'color':'#FF99FF'}, {'value':land_take_value[11][1], 'color':'#FF99FF'}, {'value':land_take_value[10][1], 'color':'#FF99FF'},\
         {'value':land_take_value[9][1], 'color':'#FF99FF'}, {'value':land_take_value[8][1], 'color':'#FF99FF'}, {'value':land_take_value[7][1], 'color':'#FF99FF'}, \
         {'value':land_take_value[6][1], 'color':'#FF99FF'}, {'value':land_take_value[5][1], 'color':'#FF99FF'}, {'value':land_take_value[4][1], 'color':'#FF99FF'}, \
