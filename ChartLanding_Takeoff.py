@@ -7,7 +7,6 @@ path = 'C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_
 df = pd.read_csv(path, encoding='ISO-8859-1')
 def main(df):
     '''main function'''
-    #สร้างตัวแปรมาเก็บค่าเป็นlist, Dic=
     landing, takeoff = get_list(df)
     keyword_landing = landing_dct(df, landing)
     keyword_takeoff = takeoff_dct(df, takeoff)
@@ -54,6 +53,7 @@ def takeoff_dct(df, takeoff):
     #print(dict(sorted_y))
 def count_land_take(df):
     '''Counting landing and takeoff'''
+    #เอา keyword มาเก็บใน list และค่าของแต่ละคำเก็บไว้อีกตัวแปร
     landing, takeoff = main(df)
     key_landing = ['weather', 'fog', 'rain', 'stalled', 'engine', 'maintance', 'improper', 'inadequate', 'error', 'lack', 'overran', 'weight', 'overloaded']
     key_takeoff = ['weather', 'fog', 'rain', 'stalled', 'engine', 'maintance', 'improper', 'inadequate', 'error', 'lack', 'overran', 'weight', 'overloaded']
