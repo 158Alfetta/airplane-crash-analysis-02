@@ -3,7 +3,7 @@ import pandas as pd
 from operator import itemgetter
 from collections import OrderedDict
 import pygal
-path = "C:\\Users\\Asus\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv"
+path = 'C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv'
 df = pd.read_csv(path, encoding='ISO-8859-1')
 def main(df):
     '''main function'''
@@ -55,20 +55,21 @@ def takeoff_dct(df, takeoff):
 def count_land_take(df):
     '''Counting landing and takeoff'''
     landing, takeoff = main(df)
-    key_landing = ['weather', 'fog', 'stalled', 'engine', 'maintance', 'improper', 'inadequate', 'error', 'lack', 'overran', 'weight', 'overloaded']
-    key_takeoff = ['weather', 'fog', 'stalled', 'engine', 'maintance', 'improper', 'inadequate', 'error', 'lack', 'overran', 'weight', 'overloaded']
-    land_take_value = [(41, 43), (36, 20), (15, 52), (59, 230), (16, 28), (35, 38), (18, 28), (21, 17), (25, 2), (18, 25), (3, 16), (4, 35)]
+    key_landing = ['weather', 'fog', 'rain', 'stalled', 'engine', 'maintance', 'improper', 'inadequate', 'error', 'lack', 'overran', 'weight', 'overloaded']
+    key_takeoff = ['weather', 'fog', 'rain', 'stalled', 'engine', 'maintance', 'improper', 'inadequate', 'error', 'lack', 'overran', 'weight', 'overloaded']
+    land_take_value = [(41, 43), (36, 20), (22, 23), (15, 52), (59, 230), (16, 28), (35, 38), (18, 28), (21, 17), (25, 2), (18, 25), (3, 16), (4, 35)]
     
-    line_chart = pygal.Bar()
+    line_chart = pygal.HorizontalBar()
     line_chart.title = 'landing takeoff'
-    line_chart.x_labels = ['weather', 'fog', 'stalled', 'engine', 'maintance', 'improper', 'inadequate', 'error', 'lack', 'overran', 'weight', 'overloaded']
-    line_chart.add('Landing', [{'value':land_take_value[0][0], 'color':'#99CCFF'}, {'value':land_take_value[1][0], 'color':'#99CCFF'}, {'value':land_take_value[2][0], 'color':'#99CCFF'},\
-        {'value':land_take_value[3][0], 'color':'#99CCFF'}, {'value':land_take_value[4][0], 'color':'#99CCFF'}, {'value':land_take_value[5][0], 'color':'#99CCFF'}, {'value':land_take_value[6][0], 'color':'#99CCFF'}, \
-        {'value':land_take_value[7][0], 'color':'#99CCFF'}, {'value':land_take_value[8][0], 'color':'#99CCFF'}, {'value':land_take_value[9][0], 'color':'#99CCFF'}, \
-        {'value':land_take_value[10][0], 'color':'#99CCFF'}, {'value':land_take_value[11][0], 'color':'#99CCFF'} ])
-    line_chart.add('Takeoff',  [{'value':land_take_value[0][1], 'color':'#FF99FF'}, {'value':land_take_value[1][1], 'color':'#FF99FF'}, {'value':land_take_value[2][1], 'color':'#FF99FF'},\
-        {'value':land_take_value[3][1], 'color':'#FF99FF'}, {'value':land_take_value[4][1], 'color':'#FF99FF'}, {'value':land_take_value[5][1], 'color':'#FF99FF'}, \
-        {'value':land_take_value[6][1], 'color':'#FF99FF'}, {'value':land_take_value[7][1], 'color':'#FF99FF'}, {'value':land_take_value[8][1], 'color':'#FF99FF'}, \
-        {'value':land_take_value[9][1], 'color':'#FF99FF'}, {'value':land_take_value[10][1], 'color':'#FF99FF'}, {'value':land_take_value[11][1], 'color':'#FF99FF'}])
+
+    line_chart.x_labels = ['overloaded', 'weight', 'overran', 'lack', 'error', 'inadequate', 'improper', 'maintance', 'engine', 'stalled', 'rain', 'fog', 'weather']
+    line_chart.add('Landing', [{'value':land_take_value[12][0], 'color':'#99CCFF'}, {'value':land_take_value[11][0], 'color':'#99CCFF'}, {'value':land_take_value[10][0], 'color':'#99CCFF'},\
+        {'value':land_take_value[9][0], 'color':'#99CCFF'}, {'value':land_take_value[8][0], 'color':'#99CCFF'}, {'value':land_take_value[7][0], 'color':'#99CCFF'}, {'value':land_take_value[6][0], 'color':'#99CCFF'}, \
+        {'value':land_take_value[5][0], 'color':'#99CCFF'}, {'value':land_take_value[4][0], 'color':'#99CCFF'}, {'value':land_take_value[3][0], 'color':'#99CCFF'}, \
+        {'value':land_take_value[2][0], 'color':'#99CCFF'}, {'value':land_take_value[1][0], 'color':'#99CCFF'}, {'value':land_take_value[0][0], 'color':'#99CCFF'} ])
+    line_chart.add('Takeoff',  [{'value':land_take_value[12][1], 'color':'#FF99FF'}, {'value':land_take_value[11][1], 'color':'#FF99FF'}, {'value':land_take_value[10][1], 'color':'#FF99FF'},\
+        {'value':land_take_value[9][1], 'color':'#FF99FF'}, {'value':land_take_value[8][1], 'color':'#FF99FF'}, {'value':land_take_value[7][1], 'color':'#FF99FF'}, \
+        {'value':land_take_value[6][1], 'color':'#FF99FF'}, {'value':land_take_value[5][1], 'color':'#FF99FF'}, {'value':land_take_value[4][1], 'color':'#FF99FF'}, \
+        {'value':land_take_value[3][1], 'color':'#FF99FF'}, {'value':land_take_value[2][1], 'color':'#FF99FF'}, {'value':land_take_value[1][1], 'color':'#FF99FF'}, {'value':land_take_value[0][1], 'color':'#FF99FF'}])
     line_chart.render_to_file('Landing Takeoff.svg')
 count_land_take(df)
