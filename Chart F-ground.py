@@ -2,6 +2,8 @@ import pandas as pd
 import pygal
 import operator
 def ground():
+    """from the chart about ground prople this function will
+    classify by cause that effect to accident by keyword"""
     df = pd.read_csv('C:\\Users\\Asus\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv', encoding = "ISO-8859-1")
     date = df.Date.tolist()
     years = []

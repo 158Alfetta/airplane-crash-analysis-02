@@ -1,8 +1,7 @@
 import pandas
 import pygal
 def accident_freq():
-
-    #Change this to current csv directory.
+    """to seperate of landing and takeoff"""
     directory = 'C:\\Users\\Test\\Documents\\GitHub\\airplane-crash-analysis-02\\dataset_psit.csv'
     counter = ''
     list_label = []
@@ -14,7 +13,7 @@ def accident_freq():
     maintext = pandas.read_csv(directory, encoding = "ISO-8859-1", header = None)
     for headercounter in maintext.index:
         maintextinloop = pandas.read_csv(directory, encoding = "ISO-8859-1", header = headercounter)
-        for counter in maintextinloop:
+        for counter in maintextinloop:  #word search and added to list 
             counter = counter.lower()
             if 'landing' in counter:
                 landingcounter+=1
